@@ -38,7 +38,7 @@ function getTaskLocalStorage() {
     tasks = JSON.parse(localStorage.getItem("tasks"));
     $(".form-control").each(function() {
         var taskTime=$(this).attr('id');
-        $("#"+taskTime)
+        $("#"+taskTime).val(tasks[taskTime]);
 
       });
 }
