@@ -72,3 +72,9 @@ textarea{
 .blacked-out {
   background-color: black;
 }
+.future {
+  background-color: green;
+}
+.past {
+  background-color: red;
+}

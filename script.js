@@ -13,8 +13,8 @@ var tasks = {
     17: [],
 }
 // Created functions for the task
-function saveTask9 () {
-    var task = $("#9").val();
+function saveTask () {
+    var task = $("#9","#10","#11","#12","#13","#14","#15","#16","#17").val();
     tasks[9] = task;
     saveTaskLocalStorage();
 }
@@ -30,8 +30,13 @@ function currentTime() {
         if ( currentTime > taskTime) {
             $(this).addClass("blacked-out");
         }
-      });
-    
+        else if ( currentTime < taskTime) {
+            $(this).addclass("future");
+        }
+         else if ( currentTime === taskTime);
+            $(this).addClass("past");
+
+      }); 
 }
 
 function getTaskLocalStorage() {
