@@ -1,21 +1,20 @@
-// Put the date at the top of the page
-var currentDate = moment().format('dddd') + " " + moment().format("Do MMM YYYY");
 // added tasks
 var tasks = {
-    9: [],
-    10: [],
-    11: [],
-    12: [],
-    13: [],
-    14: [],
-    15: [],
-    16: [],
-    17: [],
+    9: "",
+    10: "",
+    11: "",
+    12: "",
+    13: "",
+    14: "",
+    15: "",
+    16: "",
+    17: "",
 }
 // Created functions for the task
-function saveTask () {
-    var task = $("#9","#10","#11","#12","#13","#14","#15","#16","#17").val();
-    tasks[9] = task;
+function saveTask (taskId) {
+    tasks[taskId] = $(`#${taskId}`).val();
+    console.log(tasks);
+   
     saveTaskLocalStorage();
 }
 
@@ -28,19 +27,27 @@ function currentTime() {
     $(".form-control").each(function() {
         var taskTime=$(this).attr('id');
         if ( currentTime > taskTime) {
-            $(this).addClass("blacked-out");
+            $(this).addClass("past");
         }
-      }); 
+        else if ( currentTime < taskTime) {
+            $(this).addclass("future");
+        }
+         else {
+            $(this).addClass("current");
+         }
+      });
 }
 
 function getTaskLocalStorage() {
     tasks = JSON.parse(localStorage.getItem("tasks"));
-    $(".form-control").each(function() {
-        var taskTime=$(this).attr('id');
-        $("#"+taskTime).val(tasks[taskTime]);
 
-      });
+    for (const task in tasks) {
+      $(`#${task}`).val(tasks[task]);
+    }
 }
-// called the local storage
-getTaskLocalStorage();
-currentTime();
+
+$(document).ready(function() {
+  $("#currentDay").html(new Date());
+  getTaskLocalStorage();
+  currentTime();
+});
