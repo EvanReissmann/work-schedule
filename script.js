@@ -30,12 +30,6 @@ function currentTime() {
         if ( currentTime > taskTime) {
             $(this).addClass("blacked-out");
         }
-        else if ( currentTime < taskTime) {
-            $(this).addclass("future");
-        }
-         else if ( currentTime === taskTime);
-            $(this).addClass("past");
-
       }); 
 }
 
