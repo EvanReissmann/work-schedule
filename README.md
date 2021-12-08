@@ -1,9 +1,14 @@
-# work-schedule
+# Work Schedule
 
--updated the code to save tasks
--updated the code to work black out passed dates
--edited the css for colors
+This challenge we had to make a work schedule. 
+## Description of what was done
 
+- edited an index file
+- edited a CSS
+- edited a JS
+- created a local storage for saving tasks
+- added dates and time slots
+- Added a img folder for the screenshot
 # screen shot
 https://evanreissmann.github.io/work-schedule/
 
