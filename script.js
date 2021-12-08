@@ -21,7 +21,7 @@ function saveTask (taskId) {
 function saveTaskLocalStorage() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
-
+// set up the black out times using the date and time
 function currentTime() {
     var currentTime = new Date().getHours();
     $(".form-control").each(function() {
@@ -45,7 +45,7 @@ function getTaskLocalStorage() {
       $(`#${task}`).val(tasks[task]);
     }
 }
-
+// setup the date
 $(document).ready(function() {
   $("#currentDay").html(new Date());
   getTaskLocalStorage();
